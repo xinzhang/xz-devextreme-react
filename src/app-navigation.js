@@ -24,6 +24,10 @@ export const navigation = [
         text: "Form",
         path: "/form",
       },
+      {
+        text: "Upload",
+        path: "/upload",
+      },
     ],
   },
 ];
