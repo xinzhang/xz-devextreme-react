@@ -1,0 +1,39 @@
+.houses {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.popup-property-details {
+  position: relative;
+  overflow-x: hidden;
+
+  images: {
+    width: 700px;
+  }
+  img {
+    height: 205px;
+    margin: 10px 10px 10px 0;
+    width: 45%;
+  }
+}
+
+.large-text {
+  font-size: 24px;
+  color: #ff6a50;
+}
+.opacity {
+  opacity: 0.5;
+}
+.dx-button.favorites {
+  background-color: #f05b41;
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.dx-button.favorites .dx-icon {
+  color: #fff;
+}
