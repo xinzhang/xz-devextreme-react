@@ -1,5 +1,5 @@
 import { withNavigationWatcher } from './contexts/navigation';
-import { HomePage, TasksPage, ProfilePage, HousesPage } from './pages';
+import { HomePage, TasksPage, ProfilePage, HousesPage, FormPage } from './pages';
 
 const routes = [
   {
@@ -17,6 +17,10 @@ const routes = [
   {
     path: '/houses',
     component: HousesPage
+  },
+  {
+    path: '/form',
+    component: FormPage
   }
 ];
 

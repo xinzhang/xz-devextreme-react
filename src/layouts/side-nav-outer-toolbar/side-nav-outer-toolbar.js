@@ -68,56 +68,62 @@ export default function ({ title, children }) {
         toggleMenu={toggleMenu}
         title={title}
       />
-      <div className={"container"}>
-        <ScrollView ref={scrollViewRef} className={"layout-body with-footer"}>
-          <div className={"content"}>
-            {React.Children.map(children, (item) => {
-              return item.type !== Footer && item;
-            })}
-          </div>
-          <div className={"content-block"}>
-            {React.Children.map(children, (item) => {
-              return item.type === Footer && item;
-            })}
-          </div>
-        </ScrollView>
-      </div>
-      {/* <Drawer
-        className={['drawer', patchCssClass].join(' ')}
-        position={'before'}
-        closeOnOutsideClick={onOutsideClick}
-        openedStateMode={isLarge ? 'shrink' : 'overlap'}
-        revealMode={isXSmall ? 'slide' : 'expand'}
-        minSize={isXSmall ? 0 : 60}
-        maxSize={250}
-        shading={isLarge ? false : true}
-        opened={menuStatus === MenuStatus.Closed ? false : true}
-        template={'menu'}
-      >
-        <div className={'container'}>
-          <ScrollView ref={scrollViewRef} className={'layout-body with-footer'}>
-            <div className={'content'}>
-              {React.Children.map(children, item => {
+      {process.env.REACT_APP_WITH_SIDEBAR === "false" && (
+        <div className={"container"}>
+          <ScrollView ref={scrollViewRef} className={"layout-body with-footer"}>
+            <div className={"content"}>
+              {React.Children.map(children, (item) => {
                 return item.type !== Footer && item;
               })}
             </div>
-            <div className={'content-block'}>
-              {React.Children.map(children, item => {
+            <div className={"content-block"}>
+              {React.Children.map(children, (item) => {
                 return item.type === Footer && item;
               })}
             </div>
           </ScrollView>
         </div>
-        <Template name={'menu'}>
-          <SideNavigationMenu
-            compactMode={menuStatus === MenuStatus.Closed}
-            selectedItemChanged={onNavigationChanged}
-            openMenu={temporaryOpenMenu}
-            onMenuReady={onMenuReady}
-          >
-          </SideNavigationMenu>
-        </Template>
-      </Drawer> */}
+      )}
+      {process.env.REACT_APP_WITH_SIDEBAR === "true" && (
+        <Drawer
+          className={["drawer", patchCssClass].join(" ")}
+          position={"before"}
+          closeOnOutsideClick={onOutsideClick}
+          openedStateMode={isLarge ? "shrink" : "overlap"}
+          revealMode={isXSmall ? "slide" : "expand"}
+          minSize={isXSmall ? 0 : 60}
+          maxSize={250}
+          shading={isLarge ? false : true}
+          opened={menuStatus === MenuStatus.Closed ? false : true}
+          template={"menu"}
+        >
+          <div className={"container"}>
+            <ScrollView
+              ref={scrollViewRef}
+              className={"layout-body with-footer"}
+            >
+              <div className={"content"}>
+                {React.Children.map(children, (item) => {
+                  return item.type !== Footer && item;
+                })}
+              </div>
+              <div className={"content-block"}>
+                {React.Children.map(children, (item) => {
+                  return item.type === Footer && item;
+                })}
+              </div>
+            </ScrollView>
+          </div>
+          <Template name={"menu"}>
+            <SideNavigationMenu
+              compactMode={menuStatus === MenuStatus.Closed}
+              selectedItemChanged={onNavigationChanged}
+              openMenu={temporaryOpenMenu}
+              onMenuReady={onMenuReady}
+            ></SideNavigationMenu>
+          </Template>
+        </Drawer>
+      )}
     </div>
   );
 }

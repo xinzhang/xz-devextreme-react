@@ -23,22 +23,24 @@ export default ({ menuToggleEnabled, title, toggleMenu, userMenuItems }) => (
         text={title}
         visible={!!title}
       />
-      <Item>
-        <ul className="nav-list">
-          <li className="nav-menu">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="nav-menu">
-            <Link to="/houses">Houses</Link>
-          </li>
-          <li className="nav-menu">
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li className="nav-menu">
-            <Link to="/tasks">Tasks</Link>
-          </li>
-        </ul>
-      </Item>
+      {process.env.REACT_APP_WITH_SIDEBAR === "false" && (
+        <Item>
+          <ul className="nav-list">
+            <li className="nav-menu">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="nav-menu">
+              <Link to="/houses">Houses</Link>
+            </li>
+            <li className="nav-menu">
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li className="nav-menu">
+              <Link to="/tasks">Tasks</Link>
+            </li>
+          </ul>
+        </Item>
+      )}
       <Item
         location={"after"}
         locateInMenu={"auto"}

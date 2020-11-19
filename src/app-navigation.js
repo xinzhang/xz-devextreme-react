@@ -20,6 +20,10 @@ export const navigation = [
         text: "Houses",
         path: "/houses",
       },
+      {
+        text: "Form",
+        path: "/form",
+      },
     ],
   },
 ];
