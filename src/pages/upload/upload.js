@@ -1,5 +1,7 @@
+import React from "react";
+
 export default () => (
   <React.Fragment>
-    <h2 className={'content-block'}>Upload</h2>
+    <h2 className={"content-block"}>Upload</h2>
   </React.Fragment>
-)
+);
